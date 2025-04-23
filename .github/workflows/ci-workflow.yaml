@@ -1,0 +1,16 @@
+name: JS-CI
+on: [push]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+      steps:
+        - name: checkout code
+          uses: actions/checkout@v4
+        - name: Setup Node.js
+          uses: actions/Setup-node@v4
+          with:
+            node-version: "22.4"
+        - name: install dependencies
+          run: npm install
+        - name: Run tests
+          run: npm test
